@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>03 | Conta</title>
+    </head>
+    <body>
+
+    </body>
+
+    <script>
+
+        class Conta {
+
+            constructor(saldo) {
+                this._saldo = saldo;
+            }
+
+            get saldo() {
+                return this._saldo;
+            }
+
+            atualiza(taxa) {
+                throw new Error('Você deve sobrescrever o método!');
+            }
+
+        }
+
+        class ContaCorrente extends Conta {
+
+            atualiza(taxa) {
+                this._saldo = taxa + this._saldo;
+            }
+
+        }
+
+        class ContaPoupanca extends Conta {
+
+            atualiza(taxa) {
+                this._saldo = (taxa * 2) + this._saldo;
+            }
+
+        }
+
+    </script>
+</html>
